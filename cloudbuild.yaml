@@ -6,3 +6,4 @@ steps:
     - main
     - --source=.
     - --trigger-http
+    - --runtime=python38
