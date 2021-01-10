@@ -17,8 +17,13 @@ Local development can be done using [functions-framework](https://cloud.google.c
   pip install functions-framework
   ```
 
-## 3. Run and testing the app locally
+## 3. Run and test the app locally
 
 ```bash
 ./local-dev.sh
 ```
+
+## 4. Production
+The application is packaged in a Docker image and deployed to Cloud Run using a Cloud Build pipeline.
+
+The environment is hosted in the project [avhs-boys-hockey](https://console.cloud.google.com/?project=avhs-boys-hockey)
