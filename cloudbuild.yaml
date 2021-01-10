@@ -8,6 +8,6 @@ steps:
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'avhs-boy-hockey-redirect', '--image', 'gcr.io/avhs-boys-hockey/redirect', '--region', 'us-central1', '--platform', 'managed']
+  args: ['run', 'deploy', 'avhs-boy-hockey-redirect', '--image', 'gcr.io/avhs-boys-hockey/redirect', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
 images:
 - gcr.io/avhs-boys-hockey/redirect
