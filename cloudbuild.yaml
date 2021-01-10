@@ -1,9 +1,13 @@
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
-    - functions
-    - deploy
-    - main
-    - --source=.
-    - --trigger-http
-    - --runtime=python38
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/avhs-boys-hockey/redirect', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/avhs-boys-hockey/redirect']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'avhs-boy-hockey-redirect', '--image', 'gcr.io/avhs-boys-hockey/redirect', '--region', 'us-central1', '--platform', 'managed']
+images:
+- gcr.io/avhs-boys-hockey/redirect

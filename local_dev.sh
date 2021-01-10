@@ -1,2 +1,2 @@
-#!/bin/sh 
-functions-framework --target=main --debug
+#!/bin/sh
+functions-framework --source ./main.py --target=main --debug
